@@ -11,7 +11,7 @@ export async function getManifest(): Promise<Manifest.WebExtensionManifest> {
     version: pkg.version,
     description: pkg.description,
     browser_action: {
-      default_icon: "./assets/icon-512.png",
+      default_icon: "./assets/twitter-ads-blocker-webext-icon-512.png",
       // default_popup: "./dist/popup/index.html",
     },
     // options_ui: {
@@ -31,9 +31,10 @@ export async function getManifest(): Promise<Manifest.WebExtensionManifest> {
       },
     ],
     icons: {
-      16: "./assets/icon-512.png",
-      48: "./assets/icon-512.png",
-      128: "./assets/icon-512.png",
+      16: "./assets/twitter-ads-blocker-webext-icon-16.png",
+      32: "./assets/twitter-ads-blocker-webext-icon-32.png",
+      48: "./assets/twitter-ads-blocker-webext-icon-48.png",
+      128: "./assets/twitter-ads-blocker-webext-icon-512.png",
     },
     permissions: ["tabs", "storage", "activeTab", "http://*/", "https://*/"],
     // this is required on dev for Vite script to load

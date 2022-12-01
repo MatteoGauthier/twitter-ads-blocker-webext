@@ -14,8 +14,11 @@ const removeTwitterAds = () => {
       try {
         const elmToDelete = (element as Element)?.closest(
           `[data-testid="cellInnerDiv"], [data-testid="UserCell"], [data-testid="trend"]`
-        )
-        elmToDelete?.remove()
+        ) as HTMLElement
+        if (elmToDelete) {
+          elmToDelete.style.display = "none"
+          console.log("[twitter-ads-blocker-webext] removed an ad")
+        }
       } catch (error) {}
     }
   }
