@@ -21,4 +21,4 @@ const removeTwitterAds = () => {
   }
 }
 
-setInterval(removeTwitterAds, 5000)
+setInterval(removeTwitterAds, 10000)
