@@ -1,4 +1,4 @@
-import { browser } from "webextension-polyfill-ts"
+import * as browser from 'webextension-polyfill';
 
 browser.runtime.onInstalled.addListener((): void => {
   // eslint-disable-next-line no-console

@@ -1,5 +1,3 @@
-console.info("[twitter-ads-blocker-webext] Hello world from content script")
-
 const removeTwitterAds = () => {
   const twitter_ads_selector = document.evaluate(
     "//*[text()[contains(.,'Sponsorisé')]]",
@@ -24,4 +22,7 @@ const removeTwitterAds = () => {
   }
 }
 
-setInterval(removeTwitterAds, 10000)
+if (window.location.href.includes("twitter.com")) {
+  console.log("[twitter-ads-blocker-webext] Extension is running")
+  setInterval(removeTwitterAds, 10000)
+}
