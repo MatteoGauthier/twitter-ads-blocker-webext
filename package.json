@@ -1,5 +1,5 @@
 {
-  "name": "vitesse-webext",
+  "name": "twitter-ads-blocker-webext",
   "displayName": "Twitter Ads Blocker",
   "description": "Remove ads from Twitter periodically. The extension removes tweets, users, and trends that are marked as ads.",
   "version": "0.0.1",
