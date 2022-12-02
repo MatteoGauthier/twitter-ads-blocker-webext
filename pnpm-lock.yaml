@@ -4,6 +4,7 @@ specifiers:
   '@preact/preset-vite': ^2.1.0
   '@types/fs-extra': ^9.0.12
   '@types/node': ^16.4.1
+  '@types/webextension-polyfill': ^0.9.2
   chokidar: ^3.5.2
   cross-env: ^7.0.3
   esno: ^0.8.0
@@ -16,12 +17,13 @@ specifiers:
   typescript: ^4.3.5
   vite: ^2.4.3
   webext-bridge: ^4.0.0
-  webextension-polyfill-ts: ^0.26.0
+  webextension-polyfill: ^0.10.0
 
 devDependencies:
   '@preact/preset-vite': 2.1.0_preact@10.5.14+vite@2.4.3
   '@types/fs-extra': 9.0.12
   '@types/node': 16.4.1
+  '@types/webextension-polyfill': 0.9.2
   chokidar: 3.5.2
   cross-env: 7.0.3
   esno: 0.8.0
@@ -34,7 +36,7 @@ devDependencies:
   typescript: 4.3.5
   vite: 2.4.3
   webext-bridge: 4.0.0
-  webextension-polyfill-ts: 0.26.0
+  webextension-polyfill: 0.10.0
 
 packages:
 
@@ -339,6 +341,10 @@ packages:
 
   /@types/node/16.4.1:
     resolution: {integrity: sha512-UW7cbLqf/Wu5XH2RKKY1cHwUNLicIDRLMraYKz+HHAerJ0ZffUEk+fMnd8qU2JaS6cAy0r8tsaf7yqHASf/Y0Q==}
+    dev: true
+
+  /@types/webextension-polyfill/0.9.2:
+    resolution: {integrity: sha512-op8YeoK60K6/GIx3snWs3JowBZ+/aeSnZzZuuwynA7VARWfzr3st9aQNk9RWfoBx5xqlNZjAsh2QttPUZnabCw==}
     dev: true
 
   /ansi-styles/3.2.1:
@@ -1560,6 +1566,10 @@ packages:
     resolution: {integrity: sha512-XEFL+aYVEsm/d4RajVwP75g56c/w2aSHnPwgtUv8/nCzbLNSzRQIix6aj1xqFkA5yr7OIDkk3OD/QTnPp8ThYA==}
     dependencies:
       webextension-polyfill: 0.8.0
+    dev: true
+
+  /webextension-polyfill/0.10.0:
+    resolution: {integrity: sha512-c5s35LgVa5tFaHhrZDnr3FpQpjj1BB+RXhLTYUxGqBVN460HkbM8TBtEqdXWbpTKfzwCcjAZVF7zXCYSKtcp9g==}
     dev: true
 
   /webextension-polyfill/0.8.0:

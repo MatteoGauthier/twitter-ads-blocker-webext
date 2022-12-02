@@ -1,4 +1,4 @@
-import type { Manifest } from "webextension-polyfill-ts"
+import type { Manifest } from "webextension-polyfill"
 import pkg from "../package.json"
 import { isDev, port } from "../scripts/utils"
 
@@ -6,11 +6,11 @@ export async function getManifest(): Promise<Manifest.WebExtensionManifest> {
   // update this file to update this manifest.json
   // can also be conditional based on your need
   return {
-    manifest_version: 2,
+    manifest_version: 3,
     name: pkg.displayName || pkg.name,
     version: pkg.version,
     description: pkg.description,
-    browser_action: {
+    action: {
       default_icon: "./assets/twitter-ads-blocker-webext-icon-512.png",
       // default_popup: "./dist/popup/index.html",
     },
@@ -20,14 +20,12 @@ export async function getManifest(): Promise<Manifest.WebExtensionManifest> {
     //   chrome_style: false,
     // },
     background: {
-      scripts: ["./dist/background/index.global.js"],
-      persistent: false,
+      service_worker: "./dist/background/index.global.js",
     },
     content_scripts: [
       {
         matches: ["http://*/*", "https://*/*"],
         js: ["./dist/content/index.global.js"],
-        css: ["./dist/content/style.css"],
       },
     ],
     icons: {
@@ -36,8 +34,14 @@ export async function getManifest(): Promise<Manifest.WebExtensionManifest> {
       48: "./assets/twitter-ads-blocker-webext-icon-48.png",
       128: "./assets/twitter-ads-blocker-webext-icon-512.png",
     },
-    permissions: ["tabs", "storage", "activeTab", "http://*/", "https://*/"],
+    permissions: ["activeTab"],
+    host_permissions: ["http://*/", "https://*/"],
     // this is required on dev for Vite script to load
-    content_security_policy: isDev ? `script-src \'self\' http://localhost:${port}; object-src \'self\'` : undefined,
+    content_security_policy: {
+      extension_pages: isDev
+        ? // this is required on dev for Vite script to load
+          `script-src 'self' http://localhost:${port}; object-src 'self' http://localhost:${port}`
+        : "script-src 'self'; object-src 'self'",
+    },
   }
 }
