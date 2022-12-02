@@ -26,7 +26,6 @@ export async function getManifest(): Promise<Manifest.WebExtensionManifest> {
       {
         matches: ["http://*/*", "https://*/*"],
         js: ["./dist/content/index.global.js"],
-        css: ["./dist/content/style.css"],
       },
     ],
     icons: {
@@ -38,7 +37,11 @@ export async function getManifest(): Promise<Manifest.WebExtensionManifest> {
     permissions: ["activeTab"],
     host_permissions: ["http://*/", "https://*/"],
     // this is required on dev for Vite script to load
-    // @todo change this to MV3
-    content_security_policy: isDev ? `script-src \'self\' http://localhost:${port}; object-src \'self\'` : undefined,
+    content_security_policy: {
+      extension_pages: isDev
+        ? // this is required on dev for Vite script to load
+          `script-src 'self' http://localhost:${port}; object-src 'self' http://localhost:${port}`
+        : "script-src 'self'; object-src 'self'",
+    },
   }
 }
