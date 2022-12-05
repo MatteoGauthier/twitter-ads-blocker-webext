@@ -34,7 +34,7 @@ export async function getManifest(): Promise<Manifest.WebExtensionManifest> {
       48: "./assets/twitter-ads-blocker-webext-icon-48.png",
       128: "./assets/twitter-ads-blocker-webext-icon-512.png",
     },
-    permissions: ["activeTab"],
+    // permissions: ["activeTab"],
     host_permissions: ["http://*/", "https://*/"],
     // this is required on dev for Vite script to load
     content_security_policy: {
